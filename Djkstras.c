@@ -23,7 +23,7 @@ void dijkstra(int c[10][10], int n, int s, int d[10]) {
         }
 
         v[u] = 1;
-// 0+(2,3)<(0,3)
+
         for (j = 0; j < n; j++) {
             if (!v[j] && (d[u] + c[u][j]) < d[j]) {
                 d[j] = d[u] + c[u][j];

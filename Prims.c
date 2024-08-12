@@ -13,22 +13,22 @@ int main() {
         for (int j = 0; j < n; j++) {
             scanf("%d", &cost[i][j]);
             if (cost[i][j] == 0 && i != j) {
-                cost[i][j] = INF; // Set non-edges to infinity
+                cost[i][j] = INF; 
             }
         }
     }
 
-    int visited[10] = {0}; // Array to track visited nodes
-    visited[0] = 1; // Start with the first node
-    int mincost = 0; // To store the total cost of the MST
+    int visited[10] = {0};
+    visited[0] = 1;
+    int mincost = 0; 
 
     printf("\nEdges in the Minimum Spanning Tree:\n");
 
     for (int edges = 1; edges < n; edges++) {
-        int min = INF; // Initialize minimum cost to infinity
-        int u = -1, v = -1; // To store the nodes of the minimum edge
+        int min = INF; 
+        int u = -1, v = -1;
 
-        // Find the edge with the minimum cost that connects a visited node to an unvisited node
+
         for (int i = 0; i < n; i++) {
             if (visited[i]) {
                 for (int j = 0; j < n; j++) {
@@ -41,11 +41,11 @@ int main() {
             }
         }
 
-        // If a valid edge is found
+
         if (u != -1 && v != -1) {
             printf("Edge %d: (%d %d) cost: %d\n", edges, u + 1, v + 1, min);
-            mincost += min; // Add the cost of this edge to the total cost
-            visited[v] = 1; // Mark the new node as visited
+            mincost += min;
+            visited[v] = 1; 
         }
     }
 

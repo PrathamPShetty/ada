@@ -2,21 +2,21 @@
 
 #define MAX 50
 
-int p[MAX], w[MAX];  // Arrays to store profits and weights
-double x[MAX];       // Solution vector
-double maxprofit;    // To store the maximum profit
-int n, m;            // Number of objects and maximum capacity
+int p[MAX], w[MAX]; 
+double x[MAX];       
+double maxprofit;    
+int n, m;           
 
-// Function to perform the greedy knapsack algorithm
+
 void greedyKnapsack(int n, int w[], int p[], int m) {
     double ratio[MAX];
     
-    // Calculate profit-to-weight ratio for each object
+  
     for (int i = 0; i < n; i++) {
         ratio[i] = (double)p[i] / w[i];
     }
 
-    // Sort objects based on their profit-to-weight ratio in decreasing order
+   
     for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
             if (ratio[i] < ratio[j]) {
@@ -38,7 +38,6 @@ void greedyKnapsack(int n, int w[], int p[], int m) {
     int currentWeight = 0;
     maxprofit = 0.0;
     
-    // Iterate through objects and add them to the knapsack
     for (int i = 0; i < n; i++) {
         if (currentWeight + w[i] <= m) {
             x[i] = 1;
@@ -51,7 +50,6 @@ void greedyKnapsack(int n, int w[], int p[], int m) {
         }
     }
 
-    // Print the results
     printf("Optimal solution for greedy method: %.1f\n", maxprofit);
     printf("Solution vector for greedy method: ");
     for (int i = 0; i < n; i++) {
@@ -60,7 +58,7 @@ void greedyKnapsack(int n, int w[], int p[], int m) {
     printf("\n");
 }
 
-// Main function
+
 int main() {
     printf("Enter the number of objects: ");
     scanf("%d", &n);
